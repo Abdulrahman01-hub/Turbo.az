@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Car
 
-# Ana sayfa
 def home_page(request):
     cars = Car.objects.all()
     context = {
@@ -11,7 +10,7 @@ def home_page(request):
     }
     return render(request, 'home.html', context)
 
-# Arama sonuçlarını işleyen view
+
 def search_results(request):
     query = request.GET.get('query', '') 
     brand = request.GET.get('brand', '')  
@@ -25,10 +24,9 @@ def search_results(request):
     context = {'cars': cars}
     return render(request, 'search_results.html', context)
 
-# Araba detaylarını gösteren view
 def car_detail(request, car_id):
-    car = get_object_or_404(Car, id=car_id)  # car_id'ye göre arabayı al
+    car = get_object_or_404(Car, id=car_id)
     context = {
-        'car': car,  # Detayları şablona ilet
+        'car': car, 
     }
     return render(request, 'car_detail.html', context)
