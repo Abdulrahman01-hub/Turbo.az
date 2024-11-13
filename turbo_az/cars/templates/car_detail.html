@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ car.brand }} {{ car.model }} Details</title>
+    <style>
+        /* Genel stil ayarları */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Başlık stil */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        /* Car Details Section */
+        .car-details {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            background-color: white;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .car-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .car-info img {
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .car-info h3 {
+            font-size: 2em;
+            color: #34495e;
+        }
+
+        .car-info p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .car-info p strong {
+            color: #2c3e50;
+        }
+
+        /* Footer stil */
+        footer {
+            background-color: #34495e;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .car-details {
+                flex-direction: column;
+            }
+
+            .car-info img {
+                width: 100%;
+                max-width: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{ car.brand }} {{ car.model }} Details</h1>
+    </header>
+
+    <section class="car-details">
+        <div class="container">
+            <div class="car-info">
+                <img src="{{ car.image.url }}" alt="{{ car.brand }} {{ car.model }}" width="500">
+                <h3>{{ car.brand }} {{ car.model }} ({{ car.year }})</h3>
+                <p><strong>Price:</strong> {{ car.price }} USD</p>
+                <p><strong>Condition:</strong> {{ car.condition }}</p>
+                <p><strong>Transmission:</strong> {{ car.transmission }}</p>
+                <p><strong>Fuel Type:</strong> {{ car.fuel_type }}</p>
+                <p><strong>Mileage:</strong> {{ car.mileage }} km</p>
+                <p><strong>Description:</strong> {{ car.description }}</p>
+                <p><strong>City:</strong> {{ car.city }}</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Turbo.az. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

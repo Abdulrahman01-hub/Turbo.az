@@ -1,0 +1,25 @@
+<!-- templates/car_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arabalar</title>
+</head>
+<body>
+    <h1>Arabalar</h1>
+    <form action="{% url 'search' %}" method="get">
+        <input type="text" name="query" placeholder="Model Ara" value="{{ query }}">
+        <input type="text" name="brand" placeholder="Marka Ara" value="{{ brand }}">
+        <button type="submit">Ara</button>
+    </form>
+    
+    {% for car in cars %}
+        <div>
+            <h2><a href="{% url 'car_detail' car.id %}">{{ car.brand }} {{ car.model }}</a></h2>
+            <p>{{ car.year }} - {{ car.price }}₼</p>
+        </div>
+    {% empty %}
+        <p>Aradığınız kriterlere uyan araba bulunamadı.</p>
+    {% endfor %}
+</body>
+</html>
